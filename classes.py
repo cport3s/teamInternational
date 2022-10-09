@@ -27,6 +27,7 @@ class DataCapture():
         for i in self.numberList:
             if i >= startNumber and i <= endNumber:
                 counter += 1
+        #return len([i for i in self.numberList if i >= startNumber and i <= endNumber])
         return counter
 
     def build_stats():
