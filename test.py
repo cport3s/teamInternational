@@ -8,7 +8,9 @@ capture.add(10)
 capture.add(5)
 capture.add(12)
 
+stats = capture.build_stats
+
 print(capture.numberList)
-print(capture.less(4))
-print(capture.greater(9))
-print(capture.between(3,8))
+print(stats.less(4))
+print(stats.greater(9))
+print(stats.between(3,8))
