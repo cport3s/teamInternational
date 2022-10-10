@@ -1,18 +1,19 @@
 class DataCapture():
     def __init__(self):
-        self.number_list = []
+        self.number_dict = {}
 
     def add(self, number):
-        self.number_list.append(number)
+        if self.number_dict.get(number) is None:
+            self.number_dict[number] = 1
+        else:
+            self.number_dict[number] += 1
 
     def build_stats(self):
-        # n*Log(n)
-        self.number_list.sort()
-        return Stats(self.number_list)
+        return Stats(dict(sorted(self.number_dict.items())))
 
 class Stats():
-    def __init__(self, sorted_number_list):
-        self.sorted_number_list = sorted_number_list.copy()
+    def __init__(self, sorted_number_dict):
+        self.sorted_number_dict = sorted_number_dict.copy()
 
     def less(self, number):
         counter = 0
