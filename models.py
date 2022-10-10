@@ -16,15 +16,15 @@ class Stats():
 
     def less(self, number):
         counter = 0
-        while number > self.sorted_number_list[counter]:
+        while counter < len(self.sorted_number_list) and number > self.sorted_number_list[counter]:
             counter += 1
         return counter
 
     def greater(self, number):
         counter = 0
-        while number > self.sorted_number_list[counter]:
-            counter += 1
-        counter -= len(self.sorted_number_list)
+        for i in self.sorted_number_list:
+            if number < i:
+                counter += 1
         return counter
 
     def between(self, start_number, end_number):
@@ -34,5 +34,4 @@ class Stats():
                 counter += 1
             if i > end_number:
                 break
-        #return len([i for i in self.numberList if i >= startNumber and i <= endNumber])
         return counter
